@@ -20,12 +20,12 @@
         
         /* 主要漸變背景 - 使用新顏色 */
         .gradient-bg {
-            background: linear-gradient(135deg, #aeffff 0%, #ffd0f9 100%);
+            background: linear-gradient(135deg, #55ffff 0%, #ff63dd 100%);
         }
         
         /* 文字漸變 - 使用新顏色 */
         .gradient-text {
-            background: linear-gradient(135deg, #aeffff 0%, #ffd0f9 100%);
+            background: linear-gradient(135deg, #55ffff 0%, #ff63dd 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -33,27 +33,58 @@
         
         /* 活潑漸變 - 調整為新色系 */
         .fun-gradient {
-            background: linear-gradient(135deg, #ffd0f9 0%, #aeffff 52%, #b8ffff 90%);
+            background: linear-gradient(135deg, #ff63dd 0%, #55ffff 52%, #66ffff 90%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
+        /* Logo style text effect */
+        .logo-style-text {
+            font-weight: 900;
+            font-size: 4rem;
+            letter-spacing: -0.05em;
+            position: relative;
+            display: inline-block;
+            color: #ff63dd;
+            text-shadow: 
+                -3px -3px 0 #47362b,
+                3px -3px 0 #47362b,
+                -3px 3px 0 #47362b,
+                3px 3px 0 #47362b,
+                4px 4px 0 #47362b,
+                5px 5px 0 #47362b,
+                6px 6px 8px rgba(0,0,0,0.3);
+            transform: rotate(-2deg);
+            margin: 0 8px;
+            -webkit-text-stroke: 3px #47362b;
+        }
+        
+        .logo-style-text.cyan {
+            color: #55ffff;
+        }
+        
+        @media (min-width: 768px) {
+            .logo-style-text {
+                font-size: 5rem;
+            }
+        }
+        
         /* 新的主題色變數 */
         :root {
-            --primary-light: #aeffff;
-            --primary-pink: #ffd0f9;
-            --primary-light-hover: #9df5f5;
-            --primary-pink-hover: #ffbcf0;
+            --primary-light: #55ffff;
+            --primary-pink: #ff63dd;
+            --primary-light-hover: #44eeee;
+            --primary-pink-hover: #ee52cc;
         }
         
         /* 按鈕漸變 */
         .btn-gradient {
-            background: linear-gradient(135deg, #aeffff 0%, #ffd0f9 100%);
+            background: linear-gradient(135deg, #55ffff 0%, #ff63dd 100%);
         }
         
         .btn-gradient:hover {
-            background: linear-gradient(135deg, #9df5f5 0%, #ffbcf0 100%);
+            background: linear-gradient(135deg, #44eeee 0%, #ee52cc 100%);
         }
         
         .float-animation {
@@ -98,7 +129,7 @@
         }
         
         .card-shadow {
-            box-shadow: 0 10px 40px rgba(174, 255, 255, 0.15);
+            box-shadow: 0 10px 40px rgba(85, 255, 255, 0.15);
         }
         
         .scroll-smooth {
@@ -120,13 +151,13 @@
                     <span class="text-xl bounce-animation">🎉</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#features" class="text-gray-700 hover:text-[#ffd0f9] transition font-medium">點解揀我哋</a>
-                    <a href="#pricing" class="text-gray-700 hover:text-[#ffd0f9] transition font-medium">套票計劃</a>
-                    <a href="#activities" class="text-gray-700 hover:text-[#ffd0f9] transition font-medium">精選活動</a>
-                    <a href="#how" class="text-gray-700 hover:text-[#ffd0f9] transition font-medium">點樣玩</a>
+                    <a href="#features" class="text-gray-700 hover:text-[#ff63dd] transition font-medium">點解揀我哋</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-[#ff63dd] transition font-medium">套票計劃</a>
+                    <a href="#activities" class="text-gray-700 hover:text-[#ff63dd] transition font-medium">精選活動</a>
+                    <a href="#how" class="text-gray-700 hover:text-[#ff63dd] transition font-medium">點樣玩</a>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <button class="text-gray-700 hover:text-[#ffd0f9] transition font-medium">登入</button>
+                    <button class="text-gray-700 hover:text-[#ff63dd] transition font-medium">登入</button>
                     <button class="btn-gradient text-white px-6 py-2 rounded-full hover:shadow-lg transition font-semibold">
                         即刻開始 HEA
                     </button>
@@ -136,17 +167,17 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-24 pb-20 bg-gradient-to-br from-[#aeffff]/10 via-[#ffd0f9]/10 to-white">
+    <section class="pt-24 pb-20 bg-gradient-to-br from-[#55ffff]/10 via-[#ff63dd]/10 to-white">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0 slide-in">
                     <div class="flex items-center gap-3 mb-4">
                         <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold">🔥 限時優惠</span>
-                        <span class="bg-[#ffd0f9]/30 text-[#ff7ec4] px-3 py-1 rounded-full text-sm font-semibold">首月 8 折</span>
+                        <span class="bg-[#ff63dd]/30 text-[#ff63dd] px-3 py-1 rounded-full text-sm font-semibold">首月 8 折</span>
                     </div>
                     <h1 class="text-5xl md:text-6xl font-bold mb-6">
-                        一齊 <span class="fun-gradient">HEA!</span><br>
-                        一齊 <span class="fun-gradient">HA!</span>
+                        一齊 <span class="logo-style-text">HEA!</span><br>
+                        一齊 <span class="logo-style-text cyan">HA!</span>
                     </h1>
                     <p class="text-xl text-gray-600 mb-8">
                         同摯愛、同朋友，用點數解鎖全城最好玩嘅活動！<br>
@@ -156,7 +187,7 @@
                         <button class="btn-gradient text-white px-8 py-4 rounded-full text-lg font-bold hover:shadow-xl transition hover-scale">
                             <i class="fas fa-gift mr-2"></i>免費試玩 7 日
                         </button>
-                        <button class="bg-white text-[#ffd0f9] px-8 py-4 rounded-full text-lg font-bold border-2 border-[#ffd0f9] hover:border-[#ffbcf0] transition">
+                        <button class="bg-white text-[#ff63dd] px-8 py-4 rounded-full text-lg font-bold border-2 border-[#ff63dd] hover:border-[#ee52cc] transition">
                             <i class="fas fa-play-circle mr-2"></i>睇下點玩
                         </button>
                     </div>
@@ -168,17 +199,17 @@
                             <img src="https://via.placeholder.com/40" class="w-10 h-10 rounded-full border-2 border-white">
                         </div>
                         <p class="text-gray-600">
-                            <span class="font-bold text-[#ffd0f9]">10,000+</span> 人已經開始 HEA!
+                            <span class="font-bold text-[#ff63dd]">10,000+</span> 人已經開始 HEA!
                         </p>
                     </div>
                 </div>
                 <div class="md:w-1/2 flex justify-center">
                     <div class="relative float-animation">
-                        <div class="absolute inset-0 bg-gradient-to-r from-[#aeffff] to-[#ffd0f9] rounded-3xl opacity-20 blur-3xl"></div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-[#55ffff] to-[#ff63dd] rounded-3xl opacity-20 blur-3xl"></div>
                         <img src="https://via.placeholder.com/500x400" alt="Friends enjoying activities" class="relative rounded-3xl card-shadow">
                         <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl p-4 card-shadow">
                             <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 bg-gradient-to-br from-[#aeffff] to-[#ffd0f9] rounded-full flex items-center justify-center text-white font-bold">
+                                <div class="w-12 h-12 bg-gradient-to-br from-[#55ffff] to-[#ff63dd] rounded-full flex items-center justify-center text-white font-bold">
                                     ✓
                                 </div>
                                 <div>
@@ -197,30 +228,30 @@
     <section id="features" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="text-sm font-bold text-[#ffd0f9] uppercase tracking-wider">WHY HEA!HA!</span>
+                <span class="text-sm font-bold text-[#ff63dd] uppercase tracking-wider">WHY HEA!HA!</span>
                 <h2 class="text-4xl font-bold mt-3 mb-4">點解要揀 HEA!HA!？</h2>
                 <p class="text-xl text-gray-600">專為想 Hea 又想 Happy 嘅你而設 🎊</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center p-8 rounded-3xl hover:bg-gradient-to-br hover:from-[#aeffff]/10 hover:to-[#ffd0f9]/10 transition hover-scale fun-border">
-                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#aeffff]/30 to-[#ffd0f9]/30 rounded-2xl flex items-center justify-center">
+                <div class="text-center p-8 rounded-3xl hover:bg-gradient-to-br hover:from-[#55ffff]/10 hover:to-[#ff63dd]/10 transition hover-scale fun-border">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#55ffff]/30 to-[#ff63dd]/30 rounded-2xl flex items-center justify-center">
                         <span class="text-3xl">💰</span>
                     </div>
                     <h3 class="text-xl font-bold mb-3">慳錢慳時間</h3>
                     <p class="text-gray-600">一個價錢，任玩任試！<br>唔使逐次俾錢，慳返 30-40%</p>
                 </div>
                 
-                <div class="text-center p-8 rounded-3xl hover:bg-gradient-to-br hover:from-[#aeffff]/10 hover:to-[#ffd0f9]/10 transition hover-scale fun-border">
-                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#aeffff]/30 to-[#ffd0f9]/30 rounded-2xl flex items-center justify-center">
+                <div class="text-center p-8 rounded-3xl hover:bg-gradient-to-br hover:from-[#55ffff]/10 hover:to-[#ff63dd]/10 transition hover-scale fun-border">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#55ffff]/30 to-[#ff63dd]/30 rounded-2xl flex items-center justify-center">
                         <span class="text-3xl">🎯</span>
                     </div>
                     <h3 class="text-xl font-bold mb-3">專為二人世界</h3>
                     <p class="text-gray-600">情侶、閨蜜、兄弟檔<br>所有活動都啱 2 人或以上參加</p>
                 </div>
                 
-                <div class="text-center p-8 rounded-3xl hover:bg-gradient-to-br hover:from-[#aeffff]/10 hover:to-[#ffd0f9]/10 transition hover-scale fun-border">
-                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#aeffff]/30 to-[#ffd0f9]/30 rounded-2xl flex items-center justify-center">
+                <div class="text-center p-8 rounded-3xl hover:bg-gradient-to-br hover:from-[#55ffff]/10 hover:to-[#ff63dd]/10 transition hover-scale fun-border">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#55ffff]/30 to-[#ff63dd]/30 rounded-2xl flex items-center justify-center">
                         <span class="text-3xl">🎨</span>
                     </div>
                     <h3 class="text-xl font-bold mb-3">週週有新嘢</h3>
@@ -230,19 +261,19 @@
 
             <!-- Extra Features -->
             <div class="grid md:grid-cols-4 gap-6 mt-12">
-                <div class="flex items-center gap-3 p-4 rounded-2xl bg-[#aeffff]/10">
+                <div class="flex items-center gap-3 p-4 rounded-2xl bg-[#55ffff]/10">
                     <span class="text-2xl">⚡</span>
                     <span class="font-medium">即訂即確認</span>
                 </div>
-                <div class="flex items-center gap-3 p-4 rounded-2xl bg-[#ffd0f9]/10">
+                <div class="flex items-center gap-3 p-4 rounded-2xl bg-[#ff63dd]/10">
                     <span class="text-2xl">🔄</span>
                     <span class="font-medium">免費改期</span>
                 </div>
-                <div class="flex items-center gap-3 p-4 rounded-2xl bg-[#aeffff]/10">
+                <div class="flex items-center gap-3 p-4 rounded-2xl bg-[#55ffff]/10">
                     <span class="text-2xl">💝</span>
                     <span class="font-medium">送禮自用皆可</span>
                 </div>
-                <div class="flex items-center gap-3 p-4 rounded-2xl bg-[#ffd0f9]/10">
+                <div class="flex items-center gap-3 p-4 rounded-2xl bg-[#ff63dd]/10">
                     <span class="text-2xl">🏆</span>
                     <span class="font-medium">VIP 專屬優惠</span>
                 </div>
@@ -251,10 +282,10 @@
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="py-20 bg-gradient-to-br from-[#aeffff]/5 via-[#ffd0f9]/5 to-white">
+    <section id="pricing" class="py-20 bg-gradient-to-br from-[#55ffff]/5 via-[#ff63dd]/5 to-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="text-sm font-bold text-[#ffd0f9] uppercase tracking-wider">PRICING</span>
+                <span class="text-sm font-bold text-[#ff63dd] uppercase tracking-wider">PRICING</span>
                 <h2 class="text-4xl font-bold mt-3 mb-4">揀個啱你嘅 HEA 計劃</h2>
                 <p class="text-xl text-gray-600">每月一個價，任玩唔嬲 💪</p>
             </div>
@@ -270,29 +301,29 @@
                             <span class="text-4xl font-bold">$299</span>
                             <span class="text-gray-600">/月</span>
                         </div>
-                        <div class="text-[#ffd0f9] font-bold mb-6 text-lg">100 點數</div>
+                        <div class="text-[#ff63dd] font-bold mb-6 text-lg">100 點數</div>
                     </div>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-[#aeffff] mr-3"></i>
+                            <i class="fas fa-check-circle text-[#55ffff] mr-3"></i>
                             <span>每月 2-3 次活動</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-[#aeffff] mr-3"></i>
+                            <i class="fas fa-check-circle text-[#55ffff] mr-3"></i>
                             <span>基本活動選擇</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-[#aeffff] mr-3"></i>
+                            <i class="fas fa-check-circle text-[#55ffff] mr-3"></i>
                             <span>提前 3 日預訂</span>
                         </li>
                     </ul>
-                    <button class="w-full py-3 border-2 border-[#ffd0f9] text-[#ffd0f9] rounded-full font-bold hover:bg-[#ffd0f9] hover:text-white transition">
+                    <button class="w-full py-3 border-2 border-[#ff63dd] text-[#ff63dd] rounded-full font-bold hover:bg-[#ff63dd] hover:text-white transition">
                         開始 HEA!
                     </button>
                 </div>
                 
                 <!-- Popular Plan -->
-                <div class="bg-gradient-to-br from-[#aeffff] to-[#ffd0f9] rounded-3xl p-8 card-shadow hover-scale text-white transform scale-105 relative">
+                <div class="bg-gradient-to-br from-[#55ffff] to-[#ff63dd] rounded-3xl p-8 card-shadow hover-scale text-white transform scale-105 relative">
                     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
                         <span class="bg-yellow-400 text-gray-800 text-sm font-bold px-4 py-2 rounded-full">
                             🔥 最受歡迎
@@ -326,7 +357,7 @@
                             <span>專屬客服支援</span>
                         </li>
                     </ul>
-                    <button class="w-full py-3 bg-white text-[#ffd0f9] rounded-full font-bold hover:bg-gray-100 transition">
+                    <button class="w-full py-3 bg-white text-[#ff63dd] rounded-full font-bold hover:bg-gray-100 transition">
                         即刻升級 HA!
                     </button>
                 </div>
@@ -341,27 +372,27 @@
                             <span class="text-4xl font-bold">$999</span>
                             <span class="text-gray-600">/月</span>
                         </div>
-                        <div class="text-[#ffd0f9] font-bold mb-6 text-lg">500 點數</div>
+                        <div class="text-[#ff63dd] font-bold mb-6 text-lg">500 點數</div>
                     </div>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-[#aeffff] mr-3"></i>
+                            <i class="fas fa-check-circle text-[#55ffff] mr-3"></i>
                             <span>無限次活動</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-[#aeffff] mr-3"></i>
+                            <i class="fas fa-check-circle text-[#55ffff] mr-3"></i>
                             <span>VIP 專屬活動</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-[#aeffff] mr-3"></i>
+                            <i class="fas fa-check-circle text-[#55ffff] mr-3"></i>
                             <span>無限改期</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-[#aeffff] mr-3"></i>
+                            <i class="fas fa-check-circle text-[#55ffff] mr-3"></i>
                             <span>送朋友體驗券</span>
                         </li>
                     </ul>
-                    <button class="w-full py-3 border-2 border-[#ffd0f9] text-[#ffd0f9] rounded-full font-bold hover:bg-[#ffd0f9] hover:text-white transition">
+                    <button class="w-full py-3 border-2 border-[#ff63dd] text-[#ff63dd] rounded-full font-bold hover:bg-[#ff63dd] hover:text-white transition">
                         做 VIP!
                     </button>
                 </div>
@@ -381,19 +412,19 @@
     <section id="activities" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="text-sm font-bold text-[#ffd0f9] uppercase tracking-wider">ACTIVITIES</span>
+                <span class="text-sm font-bold text-[#ff63dd] uppercase tracking-wider">ACTIVITIES</span>
                 <h2 class="text-4xl font-bold mt-3 mb-4">有咩好 HEA？</h2>
                 <p class="text-xl text-gray-600">餐飲、玩樂、學嘢、relax 樣樣有 🎪</p>
             </div>
             
             <!-- Activity Categories -->
             <div class="flex flex-wrap justify-center gap-3 mb-12">
-                <button class="px-6 py-2 bg-gradient-to-r from-[#aeffff] to-[#ffd0f9] text-white rounded-full font-medium">全部</button>
-                <button class="px-6 py-2 bg-[#aeffff]/20 text-gray-700 rounded-full font-medium hover:bg-[#aeffff]/30 transition">美食 🍽️</button>
-                <button class="px-6 py-2 bg-[#ffd0f9]/20 text-gray-700 rounded-full font-medium hover:bg-[#ffd0f9]/30 transition">玩樂 🎮</button>
-                <button class="px-6 py-2 bg-[#aeffff]/20 text-gray-700 rounded-full font-medium hover:bg-[#aeffff]/30 transition">Workshop 🎨</button>
-                <button class="px-6 py-2 bg-[#ffd0f9]/20 text-gray-700 rounded-full font-medium hover:bg-[#ffd0f9]/30 transition">Relax 💆</button>
-                <button class="px-6 py-2 bg-[#aeffff]/20 text-gray-700 rounded-full font-medium hover:bg-[#aeffff]/30 transition">戶外 🏃</button>
+                <button class="px-6 py-2 bg-gradient-to-r from-[#55ffff] to-[#ff63dd] text-white rounded-full font-medium">全部</button>
+                <button class="px-6 py-2 bg-[#55ffff]/20 text-gray-700 rounded-full font-medium hover:bg-[#55ffff]/30 transition">美食 🍽️</button>
+                <button class="px-6 py-2 bg-[#ff63dd]/20 text-gray-700 rounded-full font-medium hover:bg-[#ff63dd]/30 transition">玩樂 🎮</button>
+                <button class="px-6 py-2 bg-[#55ffff]/20 text-gray-700 rounded-full font-medium hover:bg-[#55ffff]/30 transition">Workshop 🎨</button>
+                <button class="px-6 py-2 bg-[#ff63dd]/20 text-gray-700 rounded-full font-medium hover:bg-[#ff63dd]/30 transition">Relax 💆</button>
+                <button class="px-6 py-2 bg-[#55ffff]/20 text-gray-700 rounded-full font-medium hover:bg-[#55ffff]/30 transition">戶外 🏃</button>
             </div>
             
             <div class="grid md:grid-cols-4 gap-6">
@@ -403,7 +434,7 @@
                         <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
                             <span class="text-xs font-bold text-gray-700">人氣 No.1</span>
                         </div>
-                        <div class="absolute top-4 right-4 bg-gradient-to-r from-[#aeffff] to-[#ffd0f9] text-white px-3 py-1 rounded-full">
+                        <div class="absolute top-4 right-4 bg-gradient-to-r from-[#55ffff] to-[#ff63dd] text-white px-3 py-1 rounded-full">
                             <span class="font-bold">30 點</span>
                         </div>
                     </div>
@@ -418,10 +449,10 @@
                 <div class="group cursor-pointer">
                     <div class="relative overflow-hidden rounded-3xl mb-4">
                         <img src="https://via.placeholder.com/300x200" alt="Cooking Class" class="w-full h-48 object-cover group-hover:scale-110 transition duration-300">
-                        <div class="absolute top-4 left-4 bg-[#ffd0f9]/50 backdrop-blur px-3 py-1 rounded-full">
+                        <div class="absolute top-4 left-4 bg-[#ff63dd]/50 backdrop-blur px-3 py-1 rounded-full">
                             <span class="text-xs font-bold text-white">新上架</span>
                         </div>
-                        <div class="absolute top-4 right-4 bg-gradient-to-r from-[#aeffff] to-[#ffd0f9] text-white px-3 py-1 rounded-full">
+                        <div class="absolute top-4 right-4 bg-gradient-to-r from-[#55ffff] to-[#ff63dd] text-white px-3 py-1 rounded-full">
                             <span class="font-bold">25 點</span>
                         </div>
                     </div>
@@ -436,7 +467,7 @@
                 <div class="group cursor-pointer">
                     <div class="relative overflow-hidden rounded-3xl mb-4">
                         <img src="https://via.placeholder.com/300x200" alt="Spa" class="w-full h-48 object-cover group-hover:scale-110 transition duration-300">
-                        <div class="absolute top-4 right-4 bg-gradient-to-r from-[#aeffff] to-[#ffd0f9] text-white px-3 py-1 rounded-full">
+                        <div class="absolute top-4 right-4 bg-gradient-to-r from-[#55ffff] to-[#ff63dd] text-white px-3 py-1 rounded-full">
                             <span class="font-bold">40 點</span>
                         </div>
                     </div>
@@ -454,7 +485,7 @@
                         <div class="absolute top-4 left-4 bg-green-100 px-3 py-1 rounded-full">
                             <span class="text-xs font-bold text-green-700">刺激</span>
                         </div>
-                        <div class="absolute top-4 right-4 bg-gradient-to-r from-[#aeffff] to-[#ffd0f9] text-white px-3 py-1 rounded-full">
+                        <div class="absolute top-4 right-4 bg-gradient-to-r from-[#55ffff] to-[#ff63dd] text-white px-3 py-1 rounded-full">
                             <span class="font-bold">35 點</span>
                         </div>
                     </div>
@@ -476,17 +507,17 @@
     </section>
 
     <!-- How It Works -->
-    <section id="how" class="py-20 bg-gradient-to-br from-[#aeffff]/5 via-[#ffd0f9]/5 to-white">
+    <section id="how" class="py-20 bg-gradient-to-br from-[#55ffff]/5 via-[#ff63dd]/5 to-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="text-sm font-bold text-[#ffd0f9] uppercase tracking-wider">HOW IT WORKS</span>
+                <span class="text-sm font-bold text-[#ff63dd] uppercase tracking-wider">HOW IT WORKS</span>
                 <h2 class="text-4xl font-bold mt-3 mb-4">3 步就搞掂</h2>
                 <p class="text-xl text-gray-600">簡單到阿媽都識用 👵</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                 <div class="text-center">
-                    <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-[#aeffff] to-[#ffd0f9] rounded-full flex items-center justify-center text-white">
+                    <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-[#55ffff] to-[#ff63dd] rounded-full flex items-center justify-center text-white">
                         <span class="text-4xl">1️⃣</span>
                     </div>
                     <h3 class="text-xl font-bold mb-3">揀套票</h3>
@@ -494,15 +525,15 @@
                 </div>
                 
                 <div class="text-center">
-                    <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-[#aeffff] to-[#ffd0f9] rounded-full flex items-center justify-center text-white">
+                    <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-[#55ffff] to-[#ff63dd] rounded-full flex items-center justify-center text-white">
                         <span class="text-4xl">2️⃣</span>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Book 活動</h3>
-                    <p class="text-gray-600">揀你鍾意嘅活動<br>用點數即刻確認</p>
+                    <p class="text-gray-600">揀你鐘意嘅活動<br>用點數即刻確認</p>
                 </div>
                 
                 <div class="text-center">
-                    <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-[#aeffff] to-[#ffd0f9] rounded-full flex items-center justify-center text-white">
+                    <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-[#55ffff] to-[#ff63dd] rounded-full flex items-center justify-center text-white">
                         <span class="text-4xl">3️⃣</span>
                     </div>
                     <h3 class="text-xl font-bold mb-3">去 HEA!</h3>
@@ -514,8 +545,8 @@
             <div class="text-center mt-16">
                 <div class="inline-block p-8 bg-white rounded-3xl card-shadow">
                     <h3 class="text-2xl font-bold mb-4">仲未明？睇片啦！</h3>
-                    <div class="w-96 h-48 bg-gradient-to-br from-[#aeffff]/20 to-[#ffd0f9]/20 rounded-2xl flex items-center justify-center mb-4">
-                        <i class="fas fa-play-circle text-6xl text-[#ffd0f9]"></i>
+                    <div class="w-96 h-48 bg-gradient-to-br from-[#55ffff]/20 to-[#ff63dd]/20 rounded-2xl flex items-center justify-center mb-4">
+                        <i class="fas fa-play-circle text-6xl text-[#ff63dd]"></i>
                     </div>
                     <p class="text-gray-600">1 分鐘學識點樣 HEA!HA!</p>
                 </div>
@@ -527,13 +558,13 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="text-sm font-bold text-[#ffd0f9] uppercase tracking-wider">TESTIMONIALS</span>
+                <span class="text-sm font-bold text-[#ff63dd] uppercase tracking-wider">TESTIMONIALS</span>
                 <h2 class="text-4xl font-bold mt-3 mb-4">HEA 友話你知</h2>
                 <p class="text-xl text-gray-600">聽下佢哋點講 💬</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="bg-gradient-to-br from-[#aeffff]/10 to-[#ffd0f9]/10 rounded-3xl p-8">
+                <div class="bg-gradient-to-br from-[#55ffff]/10 to-[#ff63dd]/10 rounded-3xl p-8">
                     <div class="flex mb-4">
                         <i class="fas fa-star text-yellow-400"></i>
                         <i class="fas fa-star text-yellow-400"></i>
@@ -551,7 +582,7 @@
                     </div>
                 </div>
                 
-                <div class="bg-gradient-to-br from-[#ffd0f9]/10 to-[#aeffff]/10 rounded-3xl p-8">
+                <div class="bg-gradient-to-br from-[#ff63dd]/10 to-[#55ffff]/10 rounded-3xl p-8">
                     <div class="flex mb-4">
                         <i class="fas fa-star text-yellow-400"></i>
                         <i class="fas fa-star text-yellow-400"></i>
@@ -569,7 +600,7 @@
                     </div>
                 </div>
                 
-                <div class="bg-gradient-to-br from-[#aeffff]/10 to-[#ffd0f9]/10 rounded-3xl p-8">
+                <div class="bg-gradient-to-br from-[#55ffff]/10 to-[#ff63dd]/10 rounded-3xl p-8">
                     <div class="flex mb-4">
                         <i class="fas fa-star text-yellow-400"></i>
                         <i class="fas fa-star text-yellow-400"></i>
@@ -591,10 +622,10 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-20 bg-gradient-to-br from-[#aeffff]/5 via-[#ffd0f9]/5 to-white">
+    <section class="py-20 bg-gradient-to-br from-[#55ffff]/5 via-[#ff63dd]/5 to-white">
         <div class="container mx-auto px-6 max-w-4xl">
             <div class="text-center mb-16">
-                <span class="text-sm font-bold text-[#ffd0f9] uppercase tracking-wider">FAQ</span>
+                <span class="text-sm font-bold text-[#ff63dd] uppercase tracking-wider">FAQ</span>
                 <h2 class="text-4xl font-bold mt-3 mb-4">仲有疑問？</h2>
                 <p class="text-xl text-gray-600">最常見問題都喺度 📖</p>
             </div>
@@ -630,10 +661,10 @@
             <h2 class="text-4xl font-bold text-white mb-6">準備好一齊 HEA!HA! 未？</h2>
             <p class="text-xl text-white/90 mb-8">限時優惠：首月 8 折 + 額外送 50 點數！</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-white text-[#ffd0f9] px-8 py-4 rounded-full text-lg font-bold hover:shadow-xl transition hover-scale">
+                <button class="bg-white text-[#ff63dd] px-8 py-4 rounded-full text-lg font-bold hover:shadow-xl transition hover-scale">
                     即刻免費試玩 7 日
                 </button>
-                <button class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white hover:text-[#ffd0f9] transition">
+                <button class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white hover:text-[#ff63dd] transition">
                     WhatsApp 問多啲
                 </button>
             </div>
@@ -661,33 +692,33 @@
                 <div>
                     <h4 class="font-bold text-white mb-4">關於 HEA!HA!</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-[#aeffff] transition">關於我哋</a></li>
-                        <li><a href="#" class="hover:text-[#aeffff] transition">合作夥伴</a></li>
-                        <li><a href="#" class="hover:text-[#aeffff] transition">加入我哋</a></li>
-                        <li><a href="#" class="hover:text-[#aeffff] transition">媒體報導</a></li>
+                        <li><a href="#" class="hover:text-[#55ffff] transition">關於我哋</a></li>
+                        <li><a href="#" class="hover:text-[#55ffff] transition">合作夥伴</a></li>
+                        <li><a href="#" class="hover:text-[#55ffff] transition">加入我哋</a></li>
+                        <li><a href="#" class="hover:text-[#55ffff] transition">媒體報導</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 class="font-bold text-white mb-4">幫助</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-[#ffd0f9] transition">常見問題</a></li>
-                        <li><a href="#" class="hover:text-[#ffd0f9] transition">聯絡客服</a></li>
-                        <li><a href="#" class="hover:text-[#ffd0f9] transition">退款政策</a></li>
-                        <li><a href="#" class="hover:text-[#ffd0f9] transition">商戶合作</a></li>
+                        <li><a href="#" class="hover:text-[#ff63dd] transition">常見問題</a></li>
+                        <li><a href="#" class="hover:text-[#ff63dd] transition">聯絡客服</a></li>
+                        <li><a href="#" class="hover:text-[#ff63dd] transition">退款政策</a></li>
+                        <li><a href="#" class="hover:text-[#ff63dd] transition">商戶合作</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 class="font-bold text-white mb-4">Follow 我哋</h4>
                     <div class="flex space-x-4 mb-4">
-                        <a href="#" class="hover:text-[#aeffff] transition">
+                        <a href="#" class="hover:text-[#55ffff] transition">
                             <i class="fab fa-facebook text-xl"></i>
                         </a>
-                        <a href="#" class="hover:text-[#ffd0f9] transition">
+                        <a href="#" class="hover:text-[#ff63dd] transition">
                             <i class="fab fa-instagram text-xl"></i>
                         </a>
-                        <a href="#" class="hover:text-[#aeffff] transition">
+                        <a href="#" class="hover:text-[#55ffff] transition">
                             <i class="fab fa-youtube text-xl"></i>
                         </a>
                     </div>
@@ -701,8 +732,8 @@
             
             <div class="border-t border-gray-800 pt-8 text-center text-sm">
                 <p>&copy; 2024 HEA!HA! Limited. All rights reserved. | 
-                    <a href="#" class="hover:text-[#aeffff] transition">私隱政策</a> | 
-                    <a href="#" class="hover:text-[#ffd0f9] transition">服務條款</a>
+                    <a href="#" class="hover:text-[#55ffff] transition">私隱政策</a> | 
+                    <a href="#" class="hover:text-[#ff63dd] transition">服務條款</a>
                 </p>
             </div>
         </div>
