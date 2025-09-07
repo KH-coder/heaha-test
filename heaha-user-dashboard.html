@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的帳戶 - HEA!HA!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        * { font-family: 'Poppins', sans-serif; }
+        
+        .gradient-bg { background: linear-gradient(135deg, #55ffff 0%, #ff63dd 100%); }
+        .gradient-text {
+            background: linear-gradient(135deg, #55ffff 0%, #ff63dd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-gradient { background: linear-gradient(135deg, #55ffff 0%, #ff63dd 100%); }
+        .btn-gradient:hover { background: linear-gradient(135deg, #44eeee 0%, #ee52cc 100%); }
+        .card-shadow { box-shadow: 0 10px 40px rgba(85, 255, 255, 0.15); }
+        
+        /* Progress Bar Animation */
+        @keyframes progress {
+            from { width: 0%; }
+        }
+        .progress-bar { animation: progress 1s ease-out; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm z-50 card-shadow">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl font-bold gradient-text">HEA!HA!</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-[#ff63dd] transition font-medium">探索活動</a>
+                    <a href="#" class="text-[#ff63dd] font-medium">我的帳戶</a>
+                    <a href="#" class="text-gray-700 hover:text-[#ff63dd] transition font-medium">套票計劃</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-700 hover:text-[#ff63dd] transition">
+                        <i class="fas fa-bell text-xl"></i>
+                        <span class="absolute -mt-6 ml-3 w-2 h-2 bg-red-500 rounded-full"></span>
+                    </button>
+                    <div class="w-10 h-10 bg-gradient-to-br from-[#55ffff] to-[#ff63dd] rounded-full flex items-center justify-center text-white font-bold">
+                        K
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-20 flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white h-screen fixed left-0 p-6">
+            <div class="text-center mb-8">
+                <div class="w-24 h-24 mx-auto bg-gradient-to-br from-[#55ffff] to-[#ff63dd] rounded-full flex items-center justify-center text-white text-3xl font-bold mb-3">
+                    KC
+                </div>
+                <h3 class="font-bold text-lg">Kelvin Chan</h3>
+                <p class="text-sm text-gray-500">盡情 HEA 會員</p>
+            </div>
+
+            <nav class="space-y-2">
+                <a href="#" class="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-[#55ffff]/10 to-[#ff63dd]/10 rounded-xl text-[#ff63dd] font-medium">
+                    <i class="fas fa-th-large w-5"></i>
+                    <span>總覽</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 rounded-xl text-gray-700">
+                    <i class="fas fa-calendar-check w-5"></i>
+                    <span>我的預訂</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 rounded-xl text-gray-700">
+                    <i class="fas fa-heart w-5"></i>
+                    <span>收藏清單</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 rounded-xl text-gray-700">
+                    <i class="fas fa-credit-card w-5"></i>
+                    <span>套票方案</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 rounded-xl text-gray-700">
+                    <i class="fas fa-history w-5"></i>
+                    <span>點數記錄</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 rounded-xl text-gray-700">
+                    <i class="fas fa-gift w-5"></i>
+                    <span>推薦獎勵</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 rounded-xl text-gray-700">
+                    <i class="fas fa-cog w-5"></i>
+                    <span>帳戶設定</span>
+                </a>
+            </nav>
+
+            <div class="mt-8 p-4 bg-gradient-to-br from-[#55ffff]/10 to-[#ff63dd]/10 rounded-xl">
+                <p class="text-sm font-semibold mb-2">邀請朋友</p>
+                <p class="text-xs text-gray-600 mb-3">每推薦一位朋友即獲 50 點！</p>
+                <button class="w-full py-2 bg-white rounded-lg text-sm font-semibold text-[#ff63dd] hover:shadow-md transition">
+                    立即邀請
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="ml-64 flex-1 p-8">
+            <!-- Welcome Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold mb-2">歡迎回來，Kelvin! 👋</h1>
+                <p class="text-gray-600">今日想 HEA 啲咩呢？</p>
+            </div>
+
+            <!-- Points Overview -->
+            <div class="grid grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-2xl p-6 card-shadow">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-[#55ffff]/20 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-coins text-[#55ffff] text-xl"></i>
+                        </div>
+                        <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full font-semibold">
+                            +50 本月
+                        </span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-1">可用點數</p>
+                    <p class="text-3xl font-bold gradient-text">250</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 card-shadow">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-[#ff63dd]/20 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-calendar-alt text-[#ff63dd] text-xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-1">本月活動</p>
+                    <p class="text-3xl font-bold">4</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 card-shadow">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-[#55ffff]/20 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-piggy-bank text-[#55ffff] text-xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-1">已節省</p>
+                    <p class="text-3xl font-bold">$2,480</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 card-shadow">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-[#ff63dd]/20 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-trophy text-[#ff63dd] text-xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-1">會員等級</p>
+                    <p class="text-xl font-bold">盡情 HEA</p>
+                </div>
+            </div>
+
+            <!-- Current Subscription -->
+            <div class="bg-gradient-to-r from-[#55ffff] to-[#ff63dd] rounded-3xl p-8 text-white mb-8">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-2">盡情 HEA 計劃</h2>
+                        <p class="text-white/90 mb-4">每月 250 點數 • 無限精彩活動</p>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div>
+                                <p class="text-sm text-white/70">下次續訂</p>
+                                <p class="font-semibold">2024年2月15日</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-white/70">月費</p>
+                                <p class="font-semibold">$599</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <button class="bg-white text-[#ff63dd] px-6 py-2 rounded-full font-semibold hover:shadow-lg transition">
+                                管理計劃
+                            </button>
+                            <button class="border-2 border-white text-white px-6 py-2 rounded-full font-semibold hover:bg-white hover:text-[#ff63dd] transition">
+                                升級至 VIP
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-sm text-white/70 mb-2">本月點數使用</p>
+                        <p class="text-4xl font-bold mb-2">150/250</p>
+                        <div class="w-48 h-3 bg-white/30 rounded-full overflow-hidden">
+                            <div class="h-full bg-white rounded-full progress-bar" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="grid grid-cols-3 gap-6 mb-8">
+                <button class="bg-white p-6 rounded-2xl hover:shadow-lg transition text-left group">
+                    <div class="w-14 h-14 bg-gradient-to-br from-[#55ffff] to-[#ff63dd] rounded-xl flex items-center justify-center text-white text-2xl mb-4 group-hover:scale-110 transition">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="font-bold mb-1">探索新活動</h3>
+                    <p class="text-sm text-gray-600">發掘本週精選體驗</p>
+                </button>
+
+                <button class="bg-white p-6 rounded-2xl hover:shadow-lg transition text-left group">
+                    <div class="w-14 h-14 bg-gradient-to-br from-[#55ffff] to-[#ff63dd] rounded-xl flex items-center justify-center text-white text-2xl mb-4 group-hover:scale-110 transition">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="font-bold mb-1">邀請朋友</h3>
+                    <p class="text-sm text-gray-600">一齊 HEA 更開心</p>
+                </button>
+
+                <button class="bg-white p-6 rounded-2xl hover:shadow-lg transition text-left group">
+                    <div class="w-14 h-14 bg-gradient-to-br from-[#55ffff] to-[#ff63dd] rounded-xl flex items-center justify-center text-white text-2xl mb-4 group-hover:scale-110 transition">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="font-bold mb-1">寫評價</h3>
+                    <p class="text-sm text-gray-600">分享你的體驗</p>
+                </button>
+            </div>
+
+            <!-- Upcoming Bookings -->
+            <div class="bg-white rounded-2xl p-6 mb-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold">即將進行的活動</h2>
+                    <a href="#" class="text-[#ff63dd] font-medium hover:underline">查看全部</a>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition cursor-pointer">
+                        <img src="https://via.placeholder.com/80x80" alt="" class="w-20 h-20 rounded-xl object-cover">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full font-semibold">
+                                    已確認
+                                </span>
+                                <span class="text-xs text-gray-500">預訂編號: #HH2024021</span>
+                            </div>
+                            <h3 class="font-bold mb-1">雙人 Omakase 晚餐</h3>
+                            <div class="flex items-center gap-4 text-sm text-gray-600">
+                                <span><i class="far fa-calendar mr-1"></i> 2月18日 (日)</span>
+                                <span><i class="far fa-clock mr-1"></i> 19:00</span>
+                                <span><i class="fas fa-map-marker-alt mr-1"></i> 中環</span>
+                                <span><i class="fas fa-users mr-1"></i> 2人</span>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm text-gray-500 mb-1">已扣除</p>
+                            <p class="font-bold gradient-text">30 點</p>
+                        </div>
+                        <button class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium transition">
+                            管理預訂
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition cursor-pointer">
+                        <img src="https://via.placeholder.com/80x80" alt="" class="w-20 h-20 rounded-xl object-cover">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full font-semibold">
+                                    已確認
+                                </span>
+                                <span class="text-xs text-gray-500">預訂編號: #HH2024022</span>
+                            </div>
+                            <h3 class="font-bold mb-1">情侶陶瓷工作坊</h3>
+                            <div class="flex items-center gap-4 text-sm text-gray-600">
+                                <span><i class="far fa-calendar mr-1"></i> 2月24日 (六)</span>
+                                <span><i class="far fa-clock mr-1"></i> 14:00</span>
+                                <span><i class="fas fa-map-marker-alt mr-1"></i> 觀塘</span>
+                                <span><i class="fas fa-users mr-1"></i> 2人</span>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm text-gray-500 mb-1">已扣除</p>
+                            <p class="font-bold gradient-text">25 點</p>
+                        </div>
+                        <button class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium transition">
+                            管理預訂
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommended Activities -->
+            <div class="bg-white rounded-2xl p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold">為你推薦</h2>
+                    <a href="#" class="text-[#ff63dd] font-medium hover:underline">探索更多</a>
+                </div>
+                
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden rounded-xl mb-3">
+                            <img src="https://via.placeholder.com/200x150" alt="" class="w-full h-32 object-cover group-hover:scale-110 transition">
+                            <div class="absolute top-2 right-2 bg-white/90 backdrop-blur px-2 py-1 rounded-full">
+                                <span class="text-xs font-bold gradient-text">35 點</span>
+                            </div>
+                        </div>
+                        <h4 class="font-semibold text-sm mb-1">密室逃脫</h4>
+                        <p class="text-xs text-gray-500">旺角 • 娛樂</p>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden rounded-xl mb-3">
+                            <img src="https://via.placeholder.com/200x150" alt="" class="w-full h-32 object-cover group-hover:scale-110 transition">
+                            <div class="absolute top-2 right-2 bg-white/90 backdrop-blur px-2 py-1 rounded-full">
+                                <span class="text-xs font-bold gradient-text">40 點</span>
+                            </div>
+                        </div>
+                        <h4 class="font-semibold text-sm mb-1">泰式按摩</h4>
+                        <p class="text-xs text-gray-500">銅鑼灣 • Spa</p>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden rounded-xl mb-3">
+                            <img src="https://via.placeholder.com/200x150" alt="" class="w-full h-32 object-cover group-hover:scale-110 transition">
+                            <div class="absolute top-2 right-2 bg-white/90 backdrop-blur px-2 py-1 rounded-full">
+                                <span class="text-xs font-bold gradient-text">20 點</span>
+                            </div>
+                        </div>
+                        <h4 class="font-semibold text-sm mb-1">獨木舟體驗</h4>
+                        <p class="text-xs text-gray-500">西貢 • 戶外</p>
+                    </div>
+
+                    <div class="group cursor-pointer">
+                        <div class="relative overflow-hidden rounded-xl mb-3">
+                            <img src="https://via.placeholder.com/200x150" alt="" class="w-full h-32 object-cover group-hover:scale-110 transition">
+                            <div class="absolute top-2 right-2 bg-white/90 backdrop-blur px-2 py-1 rounded-full">
+                                <span class="text-xs font-bold gradient-text">45 點</span>
+                            </div>
+                        </div>
+                        <h4 class="font-semibold text-sm mb-1">品酒會</h4>
+                        <p class="text-xs text-gray-500">尖沙咀 • 美食</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

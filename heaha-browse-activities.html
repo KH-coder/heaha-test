@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探索活動 - HEA!HA!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        * { font-family: 'Poppins', sans-serif; }
+        
+        .gradient-bg { background: linear-gradient(135deg, #55ffff 0%, #ff63dd 100%); }
+        .gradient-text {
+            background: linear-gradient(135deg, #55ffff 0%, #ff63dd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-gradient { background: linear-gradient(135deg, #55ffff 0%, #ff63dd 100%); }
+        .btn-gradient:hover { background: linear-gradient(135deg, #44eeee 0%, #ee52cc 100%); }
+        .card-shadow { box-shadow: 0 10px 40px rgba(85, 255, 255, 0.15); }
+        .hover-scale { transition: transform 0.3s ease; }
+        .hover-scale:hover { transform: scale(1.05); }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #55ffff 0%, #ff63dd 100%); border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation (simplified) -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm z-50 card-shadow">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl font-bold gradient-text">HEA!HA!</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-[#ff63dd] transition font-medium">探索活動</a>
+                    <a href="#" class="text-gray-700 hover:text-[#ff63dd] transition font-medium">我的預訂</a>
+                    <a href="#" class="text-gray-700 hover:text-[#ff63dd] transition font-medium">套票計劃</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center gap-2 bg-[#55ffff]/10 px-4 py-2 rounded-full">
+                        <i class="fas fa-coins text-[#ff63dd]"></i>
+                        <span class="font-bold">250 點</span>
+                    </div>
+                    <div class="w-10 h-10 bg-gradient-to-br from-[#55ffff] to-[#ff63dd] rounded-full flex items-center justify-center text-white font-bold">
+                        K
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-20 flex">
+        <!-- Sidebar Filters -->
+        <aside class="w-80 bg-white h-screen fixed left-0 overflow-y-auto p-6">
+            <h3 class="font-bold text-lg mb-6">篩選活動</h3>
+            
+            <!-- Search -->
+            <div class="mb-6">
+                <div class="relative">
+                    <input type="text" placeholder="搜尋活動..." 
+                           class="w-full px-4 py-3 pr-10 border border-gray-200 rounded-xl focus:outline-none focus:border-[#ff63dd]">
+                    <i class="fas fa-search absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                </div>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="mb-6">
+                <h4 class="font-semibold mb-3">類別</h4>
+                <div class="space-y-2">
+                    <label class="flex items-center cursor-pointer">
+                        <input type="checkbox" class="mr-3 accent-[#ff63dd]">
+                        <span>美食餐飲</span>
+                        <span class="ml-auto text-gray-400 text-sm">(124)</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer">
+                        <input type="checkbox" class="mr-3 accent-[#ff63dd]">
+                        <span>休閒娛樂</span>
+                        <span class="ml-auto text-gray-400 text-sm">(89)</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer">
+                        <input type="checkbox" class="mr-3 accent-[#ff63dd]">
+                        <span>工作坊</span>
+                        <span class="ml-auto text-gray-400 text-sm">(67)</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer">
+                        <input type="checkbox" class="mr-3 accent-[#ff63dd]">
+                        <span>水療按摩</span>
+                        <span class="ml-auto text-gray-400 text-sm">(45)</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer">
+                        <input type="checkbox" class="mr-3 accent-[#ff63dd]">
+                        <span>戶外運動</span>
+                        <span class="ml-auto text-gray-400 text-sm">(38)</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Location Filter -->
+            <div class="mb-6">
+                <h4 class="font-semibold mb-3">地區</h4>
+                <select class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-[#ff63dd]">
+                    <option>所有地區</option>
+                    <option>港島</option>
+                    <option>九龍</option>
+                    <option>新界</option>
+                </select>
+            </div>
+
+            <!-- Points Range -->
+            <div class="mb-6">
+                <h4 class="font-semibold mb-3">點數範圍</h4>
+                <div class="flex gap-2 items-center">
+                    <input type="number" placeholder="最少" class="w-20 px-2 py-1 border rounded">
+                    <span>-</span>
+                    <input type="number" placeholder="最多" class="w-20 px-2 py-1 border rounded">
+                    <span class="text-sm text-gray-500">點</span>
+                </div>
+                <div class="mt-3">
+                    <input type="range" class="w-full accent-[#ff63dd]" min="0" max="100">
+                </div>
+            </div>
+
+            <!-- Time Preference -->
+            <div class="mb-6">
+                <h4 class="font-semibold mb-3">時間</h4>
+                <div class="space-y-2">
+                    <label class="flex items-center cursor-pointer">
+                        <input type="checkbox" class="mr-3 accent-[#ff63dd]">
+                        <span>平日</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer">
+                        <input type="checkbox" class="mr-3 accent-[#ff63dd]">
+                        <span>週末</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer">
+                        <input type="checkbox" class="mr-3 accent-[#ff63dd]">
+                        <span>晚上</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Special Tags -->
+            <div class="mb-6">
+                <h4 class="font-semibold mb-3">特色標籤</h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-[#ff63dd]/10 text-[#ff63dd] rounded-full text-sm cursor-pointer hover:bg-[#ff63dd]/20">
+                        新手友善
+                    </span>
+                    <span class="px-3 py-1 bg-[#55ffff]/10 text-[#55ffff] rounded-full text-sm cursor-pointer hover:bg-[#55ffff]/20">
+                        情侶首選
+                    </span>
+                    <span class="px-3 py-1 bg-[#ff63dd]/10 text-[#ff63dd] rounded-full text-sm cursor-pointer hover:bg-[#ff63dd]/20">
+                        包場
+                    </span>
+                    <span class="px-3 py-1 bg-[#55ffff]/10 text-[#55ffff] rounded-full text-sm cursor-pointer hover:bg-[#55ffff]/20">
+                        寵物友善
+                    </span>
+                </div>
+            </div>
+
+            <button class="w-full btn-gradient text-white py-3 rounded-xl font-semibold">
+                套用篩選
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="ml-80 flex-1 p-6">
+            <!-- Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold mb-2">探索精彩活動</h1>
+                <p class="text-gray-600">找到 365 個活動</p>
+            </div>
+
+            <!-- Sort Bar -->
+            <div class="bg-white rounded-xl p-4 mb-6 flex items-center justify-between">
+                <div class="flex gap-2">
+                    <button class="px-4 py-2 bg-gradient-to-r from-[#55ffff] to-[#ff63dd] text-white rounded-lg font-medium">
+                        推薦
+                    </button>
+                    <button class="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg font-medium">
+                        最新
+                    </button>
+                    <button class="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg font-medium">
+                        熱門
+                    </button>
+                    <button class="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg font-medium">
+                        點數最少
+                    </button>
+                </div>
+                <div class="flex gap-2">
+                    <button class="w-10 h-10 bg-[#ff63dd]/10 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-th-large text-[#ff63dd]"></i>
+                    </button>
+                    <button class="w-10 h-10 hover:bg-gray-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-list text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Activities Grid -->
+            <div class="grid grid-cols-3 gap-6">
+                <!-- Activity Card 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden hover-scale cursor-pointer card-shadow">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x250" alt="" class="w-full h-48 object-cover">
+                        <div class="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            熱門
+                        </div>
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="font-bold gradient-text">30 點</span>
+                        </div>
+                        <button class="absolute bottom-3 right-3 w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-[#ff63dd] hover:text-white transition">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs bg-[#55ffff]/10 text-[#55ffff] px-2 py-1 rounded">美食</span>
+                            <span class="text-xs text-gray-500">中環</span>
+                        </div>
+                        <h3 class="font-bold mb-1">雙人 Omakase 晚餐</h3>
+                        <p class="text-sm text-gray-600 mb-3">品嚐新鮮時令食材，享受主廚精心配搭</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-1">
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-sm font-medium">4.8</span>
+                                <span class="text-xs text-gray-500">(128)</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-gray-500 text-sm">
+                                <i class="far fa-clock"></i>
+                                <span>2小時</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity Card 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden hover-scale cursor-pointer card-shadow">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x250" alt="" class="w-full h-48 object-cover">
+                        <div class="absolute top-3 left-3 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            新活動
+                        </div>
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="font-bold gradient-text">25 點</span>
+                        </div>
+                        <button class="absolute bottom-3 right-3 w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-[#ff63dd] hover:text-white transition">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs bg-[#ff63dd]/10 text-[#ff63dd] px-2 py-1 rounded">工作坊</span>
+                            <span class="text-xs text-gray-500">觀塘</span>
+                        </div>
+                        <h3 class="font-bold mb-1">情侶陶瓷工作坊</h3>
+                        <p class="text-sm text-gray-600 mb-3">親手製作獨一無二的陶瓷作品</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-1">
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-sm font-medium">4.9</span>
+                                <span class="text-xs text-gray-500">(67)</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-gray-500 text-sm">
+                                <i class="far fa-clock"></i>
+                                <span>3小時</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity Card 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden hover-scale cursor-pointer card-shadow">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x250" alt="" class="w-full h-48 object-cover">
+                        <div class="absolute top-3 left-3 bg-purple-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            限時優惠
+                        </div>
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="font-bold gradient-text">40 點</span>
+                        </div>
+                        <button class="absolute bottom-3 right-3 w-10 h-10 bg-[#ff63dd] text-white rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs bg-[#55ffff]/10 text-[#55ffff] px-2 py-1 rounded">Spa</span>
+                            <span class="text-xs text-gray-500">銅鑼灣</span>
+                        </div>
+                        <h3 class="font-bold mb-1">雙人泰式按摩</h3>
+                        <p class="text-sm text-gray-600 mb-3">放鬆身心，消除疲勞的最佳選擇</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-1">
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-sm font-medium">4.7</span>
+                                <span class="text-xs text-gray-500">(234)</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-gray-500 text-sm">
+                                <i class="far fa-clock"></i>
+                                <span>90分鐘</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More Activity Cards... -->
+                <div class="bg-white rounded-2xl overflow-hidden hover-scale cursor-pointer card-shadow">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x250" alt="" class="w-full h-48 object-cover">
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="font-bold gradient-text">35 點</span>
+                        </div>
+                        <button class="absolute bottom-3 right-3 w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-[#ff63dd] hover:text-white transition">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs bg-[#ff63dd]/10 text-[#ff63dd] px-2 py-1 rounded">娛樂</span>
+                            <span class="text-xs text-gray-500">旺角</span>
+                        </div>
+                        <h3 class="font-bold mb-1">密室逃脫體驗</h3>
+                        <p class="text-sm text-gray-600 mb-3">挑戰思維，考驗默契的刺激遊戲</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-1">
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-sm font-medium">4.6</span>
+                                <span class="text-xs text-gray-500">(189)</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-gray-500 text-sm">
+                                <i class="far fa-clock"></i>
+                                <span>1小時</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden hover-scale cursor-pointer card-shadow">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x250" alt="" class="w-full h-48 object-cover">
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="font-bold gradient-text">20 點</span>
+                        </div>
+                        <button class="absolute bottom-3 right-3 w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-[#ff63dd] hover:text-white transition">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs bg-[#55ffff]/10 text-[#55ffff] px-2 py-1 rounded">運動</span>
+                            <span class="text-xs text-gray-500">西貢</span>
+                        </div>
+                        <h3 class="font-bold mb-1">獨木舟日落之旅</h3>
+                        <p class="text-sm text-gray-600 mb-3">欣賞海上日落美景，享受寧靜時光</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-1">
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-sm font-medium">4.9</span>
+                                <span class="text-xs text-gray-500">(76)</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-gray-500 text-sm">
+                                <i class="far fa-clock"></i>
+                                <span>4小時</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden hover-scale cursor-pointer card-shadow">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x250" alt="" class="w-full h-48 object-cover">
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
+                            <span class="font-bold gradient-text">45 點</span>
+                        </div>
+                        <button class="absolute bottom-3 right-3 w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-[#ff63dd] hover:text-white transition">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs bg-[#ff63dd]/10 text-[#ff63dd] px-2 py-1 rounded">美食</span>
+                            <span class="text-xs text-gray-500">尖沙咀</span>
+                        </div>
+                        <h3 class="font-bold mb-1">Wine Tasting 品酒會</h3>
+                        <p class="text-sm text-gray-600 mb-3">品嚐精選紅白酒，學習品酒知識</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-1">
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-sm font-medium">4.8</span>
+                                <span class="text-xs text-gray-500">(93)</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-gray-500 text-sm">
+                                <i class="far fa-clock"></i>
+                                <span>2.5小時</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex justify-center items-center gap-2 mt-12">
+                <button class="w-10 h-10 rounded-lg hover:bg-gray-100 flex items-center justify-center">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="w-10 h-10 rounded-lg bg-gradient-to-r from-[#55ffff] to-[#ff63dd] text-white font-semibold">
+                    1
+                </button>
+                <button class="w-10 h-10 rounded-lg hover:bg-gray-100 font-semibold">2</button>
+                <button class="w-10 h-10 rounded-lg hover:bg-gray-100 font-semibold">3</button>
+                <span class="px-2">...</span>
+                <button class="w-10 h-10 rounded-lg hover:bg-gray-100 font-semibold">12</button>
+                <button class="w-10 h-10 rounded-lg hover:bg-gray-100 flex items-center justify-center">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Floating Action Button -->
+    <button class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-[#55ffff] to-[#ff63dd] rounded-full text-white flex items-center justify-center shadow-lg hover:shadow-xl transition">
+        <i class="fas fa-filter"></i>
+    </button>
+</body>
+</html>

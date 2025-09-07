@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雙人 Omakase 晚餐 - HEA!HA!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        * { font-family: 'Poppins', sans-serif; }
+        
+        .gradient-bg { background: linear-gradient(135deg, #55ffff 0%, #ff63dd 100%); }
+        .gradient-text {
+            background: linear-gradient(135deg, #55ffff 0%, #ff63dd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-gradient { background: linear-gradient(135deg, #55ffff 0%, #ff63dd 100%); }
+        .btn-gradient:hover { background: linear-gradient(135deg, #44eeee 0%, #ee52cc 100%); }
+        .card-shadow { box-shadow: 0 10px 40px rgba(85, 255, 255, 0.15); }
+        
+        /* Image Gallery */
+        .thumbnail-active { border: 3px solid #ff63dd; }
+        
+        /* Calendar Styles */
+        .calendar-day:hover { background: rgba(255, 99, 221, 0.1); }
+        .calendar-selected { background: linear-gradient(135deg, #55ffff 0%, #ff63dd 100%); color: white; }
+        .calendar-unavailable { opacity: 0.3; cursor: not-allowed; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm z-50 card-shadow">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-8">
+                    <span class="text-2xl font-bold gradient-text">HEA!HA!</span>
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#" class="text-gray-700 hover:text-[#ff63dd] transition font-medium">探索活動</a>
+                        <a href="#" class="text-gray-700 hover:text-[#ff63dd] transition font-medium">我的預訂</a>
+                        <a href="#" class="text-gray-700 hover:text-[#ff63dd] transition font-medium">套票計劃</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center gap-2 bg-[#55ffff]/10 px-4 py-2 rounded-full">
+                        <i class="fas fa-coins text-[#ff63dd]"></i>
+                        <span class="font-bold">250 點</span>
+                    </div>
+                    <div class="w-10 h-10 bg-gradient-to-br from-[#55ffff] to-[#ff63dd] rounded-full flex items-center justify-center text-white font-bold">
+                        K
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="pt-24 pb-4 container mx-auto px-6">
+        <div class="flex items-center gap-2 text-sm text-gray-600">
+            <a href="#" class="hover:text-[#ff63dd]">首頁</a>
+            <i class="fas fa-chevron-right text-xs"></i>
+            <a href="#" class="hover:text-[#ff63dd]">探索活動</a>
+            <i class="fas fa-chevron-right text-xs"></i>
+            <a href="#" class="hover:text-[#ff63dd]">美食餐飲</a>
+            <i class="fas fa-chevron-right text-xs"></i>
+            <span class="text-gray-900">雙人 Omakase 晚餐</span>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 pb-12">
+        <div class="grid grid-cols-3 gap-8">
+            <!-- Left Column - Images & Details -->
+            <div class="col-span-2">
+                <!-- Image Gallery -->
+                <div class="mb-8">
+                    <div class="relative rounded-2xl overflow-hidden mb-4">
+                        <img src="https://via.placeholder.com/800x500" alt="Main" class="w-full h-96 object-cover">
+                        <div class="absolute top-4 left-4 flex gap-2">
+                            <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                                人氣 No.1
+                            </span>
+                            <span class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-bold">
+                                <i class="fas fa-fire text-orange-500 mr-1"></i> 本週熱門
+                            </span>
+                        </div>
+                        <button class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center hover:bg-white transition">
+                            <i class="far fa-heart text-[#ff63dd]"></i>
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-4 gap-2">
+                        <img src="https://via.placeholder.com/200x150" alt="" class="rounded-xl cursor-pointer thumbnail-active">
+                        <img src="https://via.placeholder.com/200x150" alt="" class="rounded-xl cursor-pointer hover:opacity-80 transition">
+                        <img src="https://via.placeholder.com/200x150" alt="" class="rounded-xl cursor-pointer hover:opacity-80 transition">
+                        <div class="relative rounded-xl overflow-hidden cursor-pointer">
+                            <img src="https://via.placeholder.com/200x150" alt="" class="hover:opacity-80 transition">
+                            <div class="absolute inset-0 bg-black/50 flex items-center justify-center text-white font-bold">
+                                +12 張
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Title & Basic Info -->
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold mb-3">雙人 Omakase 晚餐</h1>
+                    <div class="flex items-center gap-4 text-gray-600 mb-4">
+                        <div class="flex items-center gap-1">
+                            <span class="text-yellow-400">★★★★★</span>
+                            <span class="font-semibold text-gray-900">4.8</span>
+                            <span>(328 評價)</span>
+                        </div>
+                        <span>•</span>
+                        <span><i class="fas fa-bookmark mr-1"></i> 1,245 人收藏</span>
+                        <span>•</span>
+                        <span><i class="fas fa-check-circle text-green-500 mr-1"></i> 已驗證商戶</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-[#55ffff]/10 text-[#55ffff] rounded-full text-sm font-medium">
+                            <i class="fas fa-utensils mr-1"></i> 日本料理
+                        </span>
+                        <span class="px-3 py-1 bg-[#ff63dd]/10 text-[#ff63dd] rounded-full text-sm font-medium">
+                            <i class="fas fa-heart mr-1"></i> 情侶首選
+                        </span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
+                            <i class="fas fa-clock mr-1"></i> 2小時
+                        </span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
+                            <i class="fas fa-users mr-1"></i> 2人
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="bg-white rounded-2xl p-6 mb-6">
+                    <h2 class="text-xl font-bold mb-4">活動介紹</h2>
+                    <p class="text-gray-700 mb-4">
+                        在這個精心設計的 Omakase 體驗中，享受由資深日籍主廚為您準備的 12 道精選料理。每道菜都選用當季最新鮮的食材，
+                        從北海道直送的海膽到鹿兒島的A5和牛，每一口都是對味蕾的極致享受。
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        餐廳位於中環核心地帶，環境優雅寧靜，設有獨立包廂供情侶享用私密時光。主廚會根據當日食材和您的喜好，
+                        為您量身定制獨一無二的用餐體驗。
+                    </p>
+                    
+                    <h3 class="font-semibold mb-2 mt-6">體驗包括：</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check-circle text-[#55ffff] mt-1"></i>
+                            <span>12道主廚精選料理（前菜、刺身、壽司、熱食、甜品）</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check-circle text-[#55ffff] mt-1"></i>
+                            <span>歡迎飲品一杯（可選清酒、梅酒或無酒精飲品）</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check-circle text-[#55ffff] mt-1"></i>
+                            <span>主廚親自講解每道料理的特色與品嚐方法</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check-circle text-[#55ffff] mt-1"></i>
+                            <span>精美餐後甜品及抹茶</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Important Info -->
+                <div class="bg-white rounded-2xl p-6 mb-6">
+                    <h2 class="text-xl font-bold mb-4">重要資訊</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-[#ff63dd] mt-1"></i>
+                            <div>
+                                <p class="font-semibold mb-1">地點</p>
+                                <p class="text-gray-600 text-sm">中環德輔道中88號 中環廣場12樓</p>
+                                <a href="#" class="text-[#55ffff] text-sm hover:underline">查看地圖</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-clock text-[#ff63dd] mt-1"></i>
+                            <div>
+                                <p class="font-semibold mb-1">營業時間</p>
+                                <p class="text-gray-600 text-sm">週二至週日 18:00-22:00</p>
+                                <p class="text-gray-500 text-xs">週一休息</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-exclamation-circle text-[#ff63dd] mt-1"></i>
+                            <div>
+                                <p class="font-semibold mb-1">注意事項</p>
+                                <ul class="text-gray-600 text-sm space-y-1">
+                                    <li>• 請提前10分鐘到達</li>
+                                    <li>• 如有食物敏感請提前告知</li>
+                                    <li>• 餐廳設有智能服裝要求</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-sync-alt text-[#ff63dd] mt-1"></i>
+                            <div>
+                                <p class="font-semibold mb-1">更改政策</p>
+                                <p class="text-gray-600 text-sm">預訂前24小時可免費取消或改期</p>
+                                <p class="text-gray-500 text-xs">24小時內取消將扣除全部點數</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews -->
+                <div class="bg-white rounded-2xl p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-bold">用戶評價</h2>
+                        <button class="text-[#ff63dd] font-medium hover:underline">查看全部 328 則評價</button>
+                    </div>
+
+                    <!-- Rating Summary -->
+                    <div class="flex items-center gap-8 mb-6 pb-6 border-b">
+                        <div class="text-center">
+                            <p class="text-4xl font-bold mb-1">4.8</p>
+                            <div class="flex text-yellow-400 mb-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-sm text-gray-500">328 則評價</p>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="text-sm">5星</span>
+                                <div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-yellow-400" style="width: 75%"></div>
+                                </div>
+                                <span class="text-sm text-gray-500">245</span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="text-sm">4星</span>
+                                <div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-yellow-400" style="width: 18%"></div>
+                                </div>
+                                <span class="text-sm text-gray-500">59</span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="text-sm">3星</span>
+                                <div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-yellow-400" style="width: 5%"></div>
+                                </div>
+                                <span class="text-sm text-gray-500">16</span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="text-sm">2星</span>
+                                <div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-yellow-400" style="width: 2%"></div>
+                                </div>
+                                <span class="text-sm text-gray-500">6</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm">1星</span>
+                                <div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-yellow-400" style="width: 1%"></div>
+                                </div>
+                                <span class="text-sm text-gray-500">2</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Individual Reviews -->
+                    <div class="space-y-4">
+                        <div class="pb-4 border-b">
+                            <div class="flex items-start gap-3 mb-2">
+                                <div class="w-10 h-10 bg-gradient-to-br from-[#55ffff] to-[#ff63dd] rounded-full flex items-center justify-center text-white font-bold">
+                                    J
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <p class="font-semibold">Jenny L.</p>
+                                        <div class="flex text-yellow-400 text-sm">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="text-xs text-gray-500">2週前</span>
+                                    </div>
+                                    <p class="text-gray-700 text-sm mb-2">
+                                        絕對係值得推薦嘅體驗！食物新鮮美味，主廚好有心機講解每道菜嘅特色。環境舒適優雅，同男朋友慶祝紀念日簡直perfect！
+                                    </p>
+                                    <div class="flex gap-2">
+                                        <img src="https://via.placeholder.com/60x60" alt="" class="w-16 h-16 rounded object-cover">
+                                        <img src="https://via.placeholder.com/60x60" alt="" class="w-16 h-16 rounded object-cover">
+                                        <img src="https://via.placeholder.com/60x60" alt="" class="w-16 h-16 rounded object-cover">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 ml-13 text-sm text-gray-500">
+                                <button class="hover:text-[#ff63dd]"><i class="far fa-thumbs-up mr-1"></i> 有用 (12)</button>
+                            </div>
+                        </div>
+
+                        <div class="pb-4 border-b">
+                            <div class="flex items-start gap-3 mb-2">
+                                <div class="w-10 h-10 bg-gradient-to-br from-[#55ffff] to-[#ff63dd] rounded-full flex items-center justify-center text-white font-bold">
+                                    K
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <p class="font-semibold">Kevin W.</p>
+                                        <div class="flex text-yellow-400 text-sm">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="text-xs text-gray-500">1個月前</span>
+                                    </div>
+                                    <p class="text-gray-700 text-sm">
+                                        食材新鮮高質，每道菜都充滿驚喜。主廚手勢了得，壽司入口即溶。價錢合理，用HEA!HA!點數換超抵！
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 ml-13 text-sm text-gray-500">
+                                <button class="hover:text-[#ff63dd]"><i class="far fa-thumbs-up mr-1"></i> 有用 (8)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Booking Card -->
+            <div class="col-span-1">
+                <div class="bg-white rounded-2xl p-6 sticky top-24 card-shadow">
+                    <!-- Price -->
+                    <div class="text-center mb-6 pb-6 border-b">
+                        <p class="text-gray-500 mb-2">需要點數</p>
+                        <p class="text-4xl font-bold gradient-text mb-2">30 點</p>
+                        <p class="text-sm text-gray-600">原價值: <span class="line-through">$1,980</span></p>
+                        <p class="text-sm text-green-600 font-semibold">節省 $1,350 (68%)</p>
+                    </div>
+
+                    <!-- Date Selection -->
+                    <div class="mb-6">
+                        <h3 class="font-semibold mb-3">選擇日期</h3>
+                        <input type="date" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#ff63dd]">
+                    </div>
+
+                    <!-- Time Selection -->
+                    <div class="mb-6">
+                        <h3 class="font-semibold mb-3">選擇時段</h3>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button class="py-2 border border-gray-200 rounded-lg hover:border-[#ff63dd] hover:bg-[#ff63dd]/10 transition">
+                                18:00
+                            </button>
+                            <button class="py-2 border border-gray-200 rounded-lg hover:border-[#ff63dd] hover:bg-[#ff63dd]/10 transition">
+                                18:30
+                            </button>
+                            <button class="py-2 bg-gradient-to-r from-[#55ffff] to-[#ff63dd] text-white rounded-lg">
+                                19:00
+                            </button>
+                            <button class="py-2 border border-gray-200 rounded-lg hover:border-[#ff63dd] hover:bg-[#ff63dd]/10 transition">
+                                19:30
+                            </button>
+                            <button class="py-2 border border-gray-200 rounded-lg hover:border-[#ff63dd] hover:bg-[#ff63dd]/10 transition">
+                                20:00
+                            </button>
+                            <button class="py-2 border border-gray-200 rounded-lg opacity-30 cursor-not-allowed">
+                                20:30
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Number of People -->
+                    <div class="mb-6">
+                        <h3 class="font-semibold mb-3">人數</h3>
+                        <div class="flex items-center gap-4">
+                            <button class="w-10 h-10 border border-gray-200 rounded-lg hover:bg-gray-100">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span class="flex-1 text-center font-semibold">2 人</span>
+                            <button class="w-10 h-10 border border-gray-200 rounded-lg hover:bg-gray-100">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">此活動限定2人參加</p>
+                    </div>
+
+                    <!-- Special Requests -->
+                    <div class="mb-6">
+                        <h3 class="font-semibold mb-3">特別要求（選填）</h3>
+                        <textarea class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#ff63dd] resize-none" 
+                                  rows="3" placeholder="如有食物敏感或特別要求..."></textarea>
+                    </div>
+
+                    <!-- Points Balance -->
+                    <div class="bg-gray-50 rounded-xl p-4 mb-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-gray-600">你的點數餘額</span>
+                            <span class="font-semibold">250 點</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">預訂後餘額</span>
+                            <span class="font-semibold text-[#55ffff]">220 點</span>
+                        </div>
+                    </div>
+
+                    <!-- Book Button -->
+                    <button class="w-full btn-gradient text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg transition mb-3">
+                        立即預訂
+                    </button>
+                    
+                    <button class="w-full py-3 border-2 border-[#ff63dd] text-[#ff63dd] rounded-xl font-semibold hover:bg-[#ff63dd]/10 transition">
+                        <i class="far fa-heart mr-2"></i> 加入收藏
+                    </button>
+
+                    <!-- Share -->
+                    <div class="flex justify-center gap-4 mt-6 pt-6 border-t">
+                        <button class="text-gray-500 hover:text-[#55ffff]">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </button>
+                        <button class="text-gray-500 hover:text-[#ff63dd]">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </button>
+                        <button class="text-gray-500 hover:text-[#55ffff]">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </button>
+                        <button class="text-gray-500 hover:text-[#ff63dd]">
+                            <i class="fas fa-link text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Similar Activities -->
+        <div class="mt-12">
+            <h2 class="text-2xl font-bold mb-6">你可能會喜歡</h2>
+            <div class="grid grid-cols-4 gap-6">
+                <div class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition cursor-pointer">
+                    <img src="https://via.placeholder.com/300x200" alt="" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-1">法式浪漫晚餐</h4>
+                        <p class="text-sm text-gray-600 mb-2">尖沙咀 • 美食</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold gradient-text">35 點</span>
+                            <div class="flex items-center gap-1 text-sm">
+                                <span class="text-yellow-400">★</span>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition cursor-pointer">
+                    <img src="https://via.placeholder.com/300x200" alt="" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-1">韓式烤肉放題</h4>
+                        <p class="text-sm text-gray-600 mb-2">旺角 • 美食</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold gradient-text">25 點</span>
+                            <div class="flex items-center gap-1 text-sm">
+                                <span class="text-yellow-400">★</span>
+                                <span>4.6</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition cursor-pointer">
+                    <img src="https://via.placeholder.com/300x200" alt="" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-1">雙人下午茶</h4>
+                        <p class="text-sm text-gray-600 mb-2">中環 • 美食</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold gradient-text">20 點</span>
+                            <div class="flex items-center gap-1 text-sm">
+                                <span class="text-yellow-400">★</span>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition cursor-pointer">
+                    <img src="https://via.placeholder.com/300x200" alt="" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-1">泰式海鮮大餐</h4>
+                        <p class="text-sm text-gray-600 mb-2">銅鑼灣 • 美食</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold gradient-text">40 點</span>
+                            <div class="flex items-center gap-1 text-sm">
+                                <span class="text-yellow-400">★</span>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
